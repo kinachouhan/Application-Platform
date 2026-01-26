@@ -47,6 +47,7 @@ export const logout = (req, res) => {
     secure: true,       
     sameSite: "none",   
       path: "/", 
+       maxAge: 0,
   });
 
   res.status(200).json({ message: "Logged out successfully" });
