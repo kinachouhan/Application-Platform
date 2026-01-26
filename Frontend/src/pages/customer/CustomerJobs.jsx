@@ -10,28 +10,29 @@ export const CustomerJobs = () => {
   const [applicationText, setApplicationText] = useState("");
 
   const fetchJobs = async () => {
-    try {
-      const resJobs = await fetch(`${API_URL}/api/customer/jobs`, {
-        credentials: "include",
-      });
-      const jobsData = await resJobs.json();
-      setJobs(jobsData);
+  try {
+    const resJobs = await fetch(`${API_URL}/api/customer/jobs`, {
+      credentials: "include",
+    });
+    const jobsData = await resJobs.json();
+    setJobs(Array.isArray(jobsData) ? jobsData : []);
 
-      const resApps = await fetch(`${API_URL}/api/customer/applications`, {
-        credentials: "include",
-      });
-      const appsData = await resApps.json();
+    const resApps = await fetch(`${API_URL}/api/customer/applications`, {
+      credentials: "include",
+    });
+    const appsData = await resApps.json();
 
-      const appliedJobIds = appsData
-        .filter((app) => app.job)
-        .map((app) => app.job._id);
+    const appliedJobIds = Array.isArray(appsData)
+      ? appsData.filter((app) => app.job).map((app) => app.job._id)
+      : [];
 
-      setAppliedJobs(appliedJobIds);
-    } catch (err) {
-      console.error(err);
-      toast.error("Failed to fetch jobs or applications");
-    }
-  };
+    setAppliedJobs(appliedJobIds);
+  } catch (err) {
+    console.error(err);
+    toast.error("Failed to fetch jobs or applications");
+  }
+};
+
 
   useEffect(() => {
     fetchJobs();
