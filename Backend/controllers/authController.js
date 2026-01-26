@@ -10,10 +10,11 @@ const generateToken = (res, id) => {
 
   res.cookie("token", token, {
     httpOnly: true,
-    secure: false,
-    sameSite: "strict",
+    secure: process.env.NODE_ENV === "production", // true on prod
+    sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
   });
 };
+
 
 export const register = async (req, res) => {
   const { name, email, password, role } = req.body;
@@ -38,11 +39,11 @@ export const register = async (req, res) => {
 
 
 export const logout = (req, res) => {
-  res.clearCookie("token", {
-    httpOnly: true,
-    sameSite: "strict",
-    secure: false,
-  });
+ res.clearCookie("token", {
+  httpOnly: true,
+  secure: process.env.NODE_ENV === "production",
+  sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
+});
 
   res.status(200).json({ message: "Logged out successfully" });
 };
