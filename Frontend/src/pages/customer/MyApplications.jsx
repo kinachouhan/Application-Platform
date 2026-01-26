@@ -6,19 +6,21 @@ export const MyApplications = () => {
   const [applications, setApplications] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const fetchApplications = async () => {
-    try {
-      const res = await fetch(`${API_URL}/api/customer/applications`, {
-        credentials: "include",
-      });
-      const data = await res.json();
-      setApplications(data);
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setLoading(false);
-    }
-  };
+ const fetchApplications = async () => {
+  try {
+    const res = await fetch(`${API_URL}/api/customer/applications`, {
+      credentials: "include",
+    });
+    const data = await res.json();
+    setApplications(Array.isArray(data) ? data : []);
+  } catch (err) {
+    console.error(err);
+    setApplications([]); 
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   useEffect(() => {
     fetchApplications();
