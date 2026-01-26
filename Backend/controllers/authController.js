@@ -42,18 +42,14 @@ export const register = async (req, res) => {
 
 
 export const logout = (req, res) => {
- 
-
   res.clearCookie("token", {
-            httpOnly: true,
-            sameSite: "lax",
-            secure: false
-        })
-
+    httpOnly: true,
+    secure: true,       
+    sameSite: "none",   
+  });
 
   res.status(200).json({ message: "Logged out successfully" });
 };
-
 
 
 export const getMe = async (req, res) => {
