@@ -13,8 +13,8 @@ import { CompanyLayout } from "./layouts/CompanyLayout";
 import { CustomerLayout } from "./layouts/CustomerLayout";
 import { PublicLayout } from "./layouts/PublicLayout";
 
-import { Login } from "./pages/Auth/Login";
-import { Register } from "./pages/Auth/Register";
+import { Login } from "./pages/auth/Login";
+import { Register } from "./pages/auth/Register";
 
 import { AdminDashboard } from "./pages/admin/AdminDashboard";
 import { Customers } from "./pages/admin/Customers";
