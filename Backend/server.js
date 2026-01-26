@@ -15,9 +15,6 @@ connectDB();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-app.use(express.json());
-app.use(cookieParser());
-
 
 
 const allowedOrigins = [
@@ -25,22 +22,21 @@ const allowedOrigins = [
   "https://applicationplatform.netlify.app",
 ];
 
+app.use(express.json());
+app.use(cookieParser());
+
 app.use(
   cors({
-    origin: function (origin, callback) {
+    origin: (origin, callback) => {
       if (!origin) return callback(null, true);
-      if (allowedOrigins.indexOf(origin) === -1) {
-        return callback(new Error("CORS policy blocked this origin"), false);
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
       }
-      return callback(null, true);
+      return callback(new Error("CORS blocked"), false);
     },
-    credentials: true, // very important for cookies
+    credentials: true,
   })
 );
-
-
-
-
 
 
 app.use("/api/auth", authRoutes);
