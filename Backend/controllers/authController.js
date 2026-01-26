@@ -10,8 +10,6 @@ const generateToken = (res, id) => {
   httpOnly: true,
   secure: true,
   sameSite: "none",
-  path: "/",
-  domain: ".onrender.com", 
   maxAge: 7 * 24 * 60 * 60 * 1000,
 });
 };

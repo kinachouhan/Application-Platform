@@ -9,12 +9,10 @@ export const AdminLayout = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
- const handleLogout = async () => {
-  await dispatch(logoutUser()).unwrap();
-  dispatch({ type: "auth/resetAuthState" });
-  navigate("/login", { replace: true });
-};
-
+  const handleLogout = () => {
+    dispatch(logoutUser());
+    navigate("/login");
+  };
 
   const handleLinkClick = () => {
     setSidebarOpen(false);
