@@ -8,9 +8,14 @@ export const CustomerLayout = () => {
   const dispatch = useDispatch();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  const handleLogout = async () => {
-    await dispatch(logoutUser());
-  };
+  
+
+   const handleLogout = async () => {
+  await dispatch(logoutUser()).unwrap();
+  dispatch({ type: "auth/resetAuthState" });
+  navigate("/login", { replace: true });
+};
+
 
   const links = [
     { name: "Dashboard", path: "/customer/dashboard" },

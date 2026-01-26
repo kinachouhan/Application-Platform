@@ -1,15 +1,11 @@
-
 import {User} from "../models/user.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 const generateToken = (res, id) => {
-
   const token = jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: "7d",
   });
-
-
   res.cookie("token", token, {
   httpOnly: true,
   secure: true,
@@ -43,16 +39,13 @@ export const register = async (req, res) => {
 };
 
 
-
 export const logout = (req, res) => {
-
-
    res.clearCookie("token", {
     httpOnly: true,
     secure: true,
     sameSite: "none",
     path: "/",
-    domain: ".onrender.com"
+    expires: new Date(0),
   });
   res.status(200).json({ message: "Logged out successfully" });
 };
@@ -68,7 +61,6 @@ export const getMe = async (req, res) => {
       },
     });
   }
-
   res.status(200).json({
     user,
   });
