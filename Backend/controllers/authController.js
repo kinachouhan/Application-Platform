@@ -9,13 +9,15 @@ const generateToken = (res, id) => {
     expiresIn: "7d",
   });
 
+
   res.cookie("token", token, {
-    httpOnly: true,
-    secure: true, 
-    sameSite:  "none",
-    path: "/",
-    maxAge: 7 * 24 * 60 * 60 * 1000, 
-  });
+  httpOnly: true,
+  secure: true,
+  sameSite: "none",
+  path: "/",
+  domain: ".onrender.com", 
+  maxAge: 7 * 24 * 60 * 60 * 1000,
+});
 };
 
 
@@ -43,14 +45,15 @@ export const register = async (req, res) => {
 
 
 export const logout = (req, res) => {
-  res.clearCookie("token", {
-    httpOnly: true,
-    secure: true,       
-    sameSite: "none",   
-    path: "/", 
-     maxAge: 0,
-  });
 
+
+   res.clearCookie("token", {
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
+    path: "/",
+    domain: ".onrender.com"
+  });
   res.status(200).json({ message: "Logged out successfully" });
 };
 
