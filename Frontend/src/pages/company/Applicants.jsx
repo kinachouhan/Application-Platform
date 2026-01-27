@@ -93,7 +93,7 @@ export const Applicants = () => {
               <tr key={a._id} className="hover:bg-gray-50 transition">
                 <td className="px-4 py-3">{a.applicant?.name}</td>
                 <td className="px-4 py-3">{a.applicant?.email}</td>
-                <td className="px-4 py-3">{a.note || "-"}</td>
+                <td className="px-4 py-3">{a.coverNote || "-"}</td>
 
                 <td className="px-4 py-3 font-semibold">
                   {a.status === "pending" && (
