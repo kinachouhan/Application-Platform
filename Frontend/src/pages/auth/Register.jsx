@@ -38,9 +38,7 @@ export const Register = () => {
   }, [user, navigate, dispatch]);
 
 
-  useEffect(() => {
-    dispatch(resetAuthState());
-  }, [dispatch]);
+ 
 
   useEffect(() => {
     if (!user) return;
