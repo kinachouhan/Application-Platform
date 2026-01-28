@@ -85,7 +85,7 @@ const router = createBrowserRouter(
       <Route
         path="/customer"
         element={
-          <ProtectedRoute role="customer">
+          <ProtectedRoute role="job-seeker">
             <CustomerLayout />
           </ProtectedRoute>
         }
