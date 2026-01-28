@@ -12,7 +12,7 @@ export const Customers = () => {
         credentials: "include",
       });
       const data = await res.json();
-      setCustomers(data.filter((u) => u.role === "customer"));
+      setCustomers(data.filter((u) => u.role === "job-seeker"));
     } catch (err) {
       console.error("Error fetching customers:", err);
     }
