@@ -181,8 +181,8 @@ export const MyJobs = () => {
       </div>
 
       {/* Edit Modal */}
-      {editJob && (
-        <div className="fixed  bg-transparent inset-0  flex items-center justify-center z-50 p-4">
+      {editJob && ( 
+        <div className="fixed bg-black/40 backdrop-blur-sm inset-0  flex items-center justify-center z-50 p-4">
           <div className="bg-white p-6 rounded-xl shadow-lg w-full max-w-md space-y-4">
             <h2 className="text-2xl font-bold text-purple-600">
               Edit Job
