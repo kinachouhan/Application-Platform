@@ -31,7 +31,7 @@ export const Register = () => {
     if (user) {
       if (user.role === "admin") navigate("/admin");
       if (user.role === "company") navigate("/company");
-      if (user.role === "job-seeker") navigate("/customer");
+      if (user.role === "job-seeker") navigate("/job-seeker");
     }
 
     return () => dispatch(resetAuthState());
@@ -40,13 +40,6 @@ export const Register = () => {
 
  
 
-  useEffect(() => {
-    if (!user) return;
-
-    if (user.role === "admin") navigate("/admin", { replace: true });
-    if (user.role === "company") navigate("/company", { replace: true });
-    if (user.role === "job-seeker") navigate("/customer", { replace: true });
-  }, [user, navigate]);
 
 
   return (
