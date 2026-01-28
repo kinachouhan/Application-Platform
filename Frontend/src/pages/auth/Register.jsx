@@ -16,7 +16,7 @@ export const Register = () => {
     name: "",
     email: "",
     password: "",
-    role: "customer",
+    role: "job-seeker",
   });
 
   const handleChange = (e) =>
@@ -31,7 +31,7 @@ export const Register = () => {
     if (user) {
       if (user.role === "admin") navigate("/admin");
       if (user.role === "company") navigate("/company");
-      if (user.role === "customer") navigate("/customer");
+      if (user.role === "job-seeker") navigate("/customer");
     }
 
     return () => dispatch(resetAuthState());
@@ -86,7 +86,7 @@ export const Register = () => {
             className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-black"
             onChange={handleChange}
           >
-            <option value="customer">Job Seeker</option>
+            <option value="job-seeker">Job Seeker</option>
             <option value="company">Company</option>
           </select>
 
