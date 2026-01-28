@@ -60,7 +60,7 @@ const router = createBrowserRouter(
         }
       >
         <Route index element={<AdminDashboard />} />
-        <Route path="customers" element={<Customers />} />
+        <Route path="job-seeker" element={<Customers />} />
         <Route path="companies" element={<Companies />} />
         <Route path="jobs" element={<Jobs />} />
         <Route path="applications" element={<Applications />} />
