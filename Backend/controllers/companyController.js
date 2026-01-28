@@ -16,6 +16,7 @@ export const getMyJobs = async (req, res) => {
   res.json(jobs);
 };
 
+
 export const getApplicants = async (req, res) => {
   const applications = await Application.find({
     job: req.params.jobId,

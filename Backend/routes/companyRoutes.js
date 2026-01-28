@@ -21,6 +21,8 @@ router.get("/applications/:jobId", getApplicants);
 router.patch("/application/:id", updateApplicationStatus);
 
 
+
+
 router.delete("/jobs/:id", deleteJob);
 
 router.patch("/jobs/:id", protect, updateJob);
