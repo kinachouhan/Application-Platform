@@ -13,9 +13,9 @@ export const CustomerLayout = () => {
   };
 
   const links = [
-    { name: "Dashboard", path: "/customer/dashboard" },
-    { name: "My Applications", path: "/customer/applications" },
-    { name: "Profile", path: "/customer/profile" },
+    { name: "Dashboard", path: "/job-seeker/dashboard" },
+    { name: "My Applications", path: "/job-seeker/applications" },
+    { name: "Profile", path: "/job-seeker/profile" },
   ];
 
   return (
