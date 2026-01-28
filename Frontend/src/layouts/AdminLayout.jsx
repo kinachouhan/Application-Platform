@@ -44,7 +44,7 @@ export const AdminLayout = () => {
             <ul className="space-y-2">
               {[
                 { to: "/admin", label: "Dashboard" },
-                { to: "/admin/customers", label: "Customers" },
+                { to: "/admin/job-seeker", label: "Customers" },
                 { to: "/admin/companies", label: "Companies" },
                 { to: "/admin/jobs", label: "Jobs" },
                 { to: "/admin/applications", label: "Applications" },
